@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdftidy"
+version = "1.0.0"
+description = "够用的 PDF 命令行工具箱：合并、拆分、提取、旋转、加密、瘦身"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [{ name = "Liuyichen27" }]
+keywords = ["pdf", "merge", "split", "cli", "pypdf"]
+classifiers = [
+  "Environment :: Console",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Office/Business",
+]
+dependencies = ["pypdf>=4.0.0"]
+
+[project.optional-dependencies]
+crypto = ["cryptography>=3.1"]
+
+[project.urls]
+Homepage = "https://github.com/Liuyichen27/pdftidy"
+
+[project.scripts]
+pdftidy = "pdftidy.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
