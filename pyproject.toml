@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pdftidy"
-version = "1.0.0"
+version = "1.1.0"
 description = "够用的 PDF 命令行工具箱：合并、拆分、提取、旋转、加密、瘦身"
 readme = "README.md"
 requires-python = ">=3.8"

@@ -1,0 +1,41 @@
+==================================================
+ pdftidy · 使用说明
+==================================================
+
+【这是什么】
+pdftidy —— 一个够用的 PDF 命令行工具箱：合并、拆分、提取、旋转、加密、解密、瘦身。
+不修改源文件，报错说人话。
+
+【怎么装】
+需要 Python 3.8 或更高版本。把压缩包解压，在解压出来的文件夹里执行：
+
+    python -m pip install .
+（需要 pypdf：pip install pypdf）
+装好后任何目录下都能用 `pdftidy` 命令。
+不想装也能直接跑：python -m pdftidy.cli …（在解压目录里）
+
+【怎么用】
+    pdftidy merge a.pdf b.pdf -o 合并.pdf
+    pdftidy extract 手册.pdf --pages 3-7,12 -o 摘录.pdf
+    pdftidy split 大文件.pdf -e 10 -o ./单章
+    pdftidy info 某文件.pdf
+
+【常用参数】
+    merge      -o 输出文件、-p 输入密码
+    split      -e 每几页一个文件（默认 1）、-o 输出目录
+    extract    --pages "1-3,7,9-" 页码写法、-o 输出文件
+    rotate     整份按 90 度旋转
+    encrypt    默认 AES-256；没装 cryptography 会退回 RC4-128 并明说
+    decrypt    去掉密码
+    slim       只压内容流和重复对象（省 5%~30%），不重采样图片
+    info       页数、页面尺寸、加密状态
+
+【它的边界】
+slim 不会把 10 MB 的扫描件变成 1 MB，它不重采样图片；加密强度降级会明确告知。
+
+【怎么确认是新版】
+每次运行会在后台看一眼 GitHub，有新版本会打一行提示（查不到就安静跳过）。
+不想让它查，设环境变量 PDFTIDY_NO_UPDATE=1 即可关闭。
+
+项目主页：https://github.com/Liuyichen27/pdftidy
+只有源码包没有安装包，装不动就提 issue。
